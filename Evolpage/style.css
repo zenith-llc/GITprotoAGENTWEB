@@ -1,0 +1,1259 @@
+@import url(https://fonts.googleapis.com/earlyaccess/sawarabimincho.css);
+
+/* ベースリセット */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background-color: #0f0f0f; /* 全体の背景色（ダーク） */
+    color: #fff;
+    overflow-x: hidden;
+  }
+  
+  /* ヘッダー */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #111;
+    border-bottom: 1px solid #333;
+    position: relative;
+  }
+  
+  /* 左側のロゴエリア */
+
+  .header-nav {
+    position: relative; /* または absolute/fixed */
+    z-index: 10;
+  }
+  
+  .header-logo {
+    font-size: 1.2rem;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  
+  /* ナビゲーション */
+  .header-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .header-nav li {
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+  
+  .header-nav li:hover {
+    opacity: 1;
+  }
+  
+  .header-nav .active {
+    color: #ff00c3;
+    opacity: 1;
+  }
+  .header-nav .active2 {
+    color: hwb(347 0% 0%);
+    opacity: 1;
+  }
+  .header-nav .passive {
+    color: hwb(229 0% 0%);
+    opacity: 1;
+  }
+
+  .header-nav .passive2 {
+    color: #d400ff;
+    opacity: 1;
+  }
+
+  
+  /* 右側のテキスト */
+  .header-right {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+  
+  /* メインコンテンツ全体 */
+  .main {
+    position: relative;
+    min-height: calc(90vh); /* ヘッダー分の高さを差し引き */
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+/* メインコンテンツ全体 */
+.main2 {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;    /* 右下エリアの幅（必要に応じて調整） */
+    height: 100%;   /* 右下エリアの高さ（必要に応じて調整） */
+    background: linear-gradient(135deg, hsla(0, 0%, 0%, 0.5), transparent);
+    pointer-events: none; /* ユーザー操作を邪魔しないように */
+  
+}
+
+/* 右側にピンクのグラデーションをオーバーレイ */
+.main2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%; /* 右側半分に適用 */
+  height: 100%;
+  background: linear-gradient(300deg, #f399ff2a, transparent);
+  pointer-events: none;
+}
+  /* サイドバー左 */
+  .sidebar-left {
+    position: relative;
+    z-index: 1;
+    width: 20%;
+    padding: 2rem 1rem;
+  }
+  
+  .sidebar-left h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+  }
+  
+  .brand-list {
+    list-style: decimal;
+    margin-left: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 2;
+    opacity: 0.9;
+  }
+  
+  /* 中央アーチ表示部分 */
+  .arc-section {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .arc-svg {
+    width: 90%;
+    height: auto;
+  }
+  
+  /* サイドバー右 */
+  .sidebar-right {
+    position: relative;
+    z-index: 1;
+    width: 20%;
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  
+  .top-50-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: right;
+    opacity: 0.9;
+  }
+  
+  /* フッターのコントロールバー */
+  .footer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;       /* 横幅いっぱいに */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #111;
+    padding: 0.5rem 2rem;
+    z-index: 999;      /* 必要なら上に重ねる */
+  }
+  
+  
+  .view-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+  
+  .view-switch .icon {
+    width: 3vw;
+    height: 3vh;
+    background-color: hwb(0 22% 78%);
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+  
+  .view-switch .icon:hover {
+    opacity: 0.7;
+  }
+  
+  .credit {
+    font-size: 0.8rem;
+    opacity: 0.8;
+  }
+  
+  .credit a {
+    text-decoration: none;
+  }
+  
+  .credit a:hover {
+    text-decoration: underline;
+  }
+  
+
+
+
+
+
+  .image-containerINDEX {
+    position: absolute; /* このコンテナが基準になります */
+    width: 60%;         /* 必要に応じてサイズ調整 */
+    height: 50vh;
+    left: 50%;
+    top: 35%;
+    opacity: 0.5;
+    /* border: 2px dashed red;  */
+    z-index: 10;
+  }
+  
+
+  .my-imageINDEX {
+    position: absolute;
+    left: 0%;    /* コンテナ内で左から10% */
+    top: 10%;     /* コンテナ内で上から10% */
+    width: 100%;   /* コンテナに合わせたサイズ調整 */
+    height: auto; /* アスペクト比を保つ */
+    /* 例: -90度回転 + 左右反転 */
+    transform: rotate(0deg);
+    transform-origin: center; /* 回転・反転の基準点を中央に */
+    /* border: 2px dashed red;  */
+    filter: sepia(0) hue-rotate(-5deg) saturate(0.5);
+    z-index: 10;
+
+
+
+  }
+
+
+
+
+
+
+  .image-containerINDEX2 {
+    position: relative; /* このコンテナが基準になります */
+    width: 100%;        /* 必要に応じてサイズ調整 */
+    left: -10%;
+    top: 35%;
+    /* border: 1px solid white; */
+
+  }
+
+  .my-imageINDEX2 {
+    position: absolute;
+    left: 0%;    /* コンテナ内で左から10% */
+    top: 0%;     /* コンテナ内で上から10% */
+    width: 200%;   /* コンテナに合わせたサイズ調整 */
+    height: auto; /* アスペクト比を保つ */
+    /* border: 1px solid white; */
+    /* 例: -90度回転 + 左右反転 */
+    transform: rotate(0deg);
+    filter: sepia(0) hue-rotate(-5deg) saturate(2);
+    transform-origin: center; /* 回転・反転の基準点を中央に */
+
+  }
+
+
+
+
+
+
+
+
+
+  .image-container {
+    position: relative; /* このコンテナが基準になります */
+    width: 80%;        /* 必要に応じてサイズ調整 */
+    left: -5%;
+  }
+
+  .my-image {
+    position: absolute;
+    left: 5%;    /* コンテナ内で左から10% */
+    top: -5%;     /* コンテナ内で上から10% */
+    width: 120%;   /* コンテナに合わせたサイズ調整 */
+    height: auto; /* アスペクト比を保つ */
+  }
+
+  .image-container2nd {
+    position: relative; /* このコンテナが基準になります */
+    width: 80%;        /* 必要に応じてサイズ調整 */
+    left: 0%;
+  }
+
+  .my-image2 {
+    position: absolute;
+    left: 5%;    /* コンテナ内で左から10% */
+    top: 5%;     /* コンテナ内で上から10% */
+    width: 100%;   /* コンテナに合わせたサイズ調整 */
+    height: auto; /* アスペクト比を保つ */
+  }
+
+
+
+  .image-container3rd {
+    position: relative; /* このコンテナが基準になります */
+    width: 50%;        /* 必要に応じてサイズ調整 */
+    left: -5%;
+  }
+
+  .my-image3 {
+    position: absolute;
+    left: 5%;    /* コンテナ内で左から10% */
+    top: 5%;     /* コンテナ内で上から10% */
+    width: 100%;   /* コンテナに合わせたサイズ調整 */
+    height: auto; /* アスペクト比を保つ */
+  }
+
+  
+
+  .image-container4rd {
+    position: relative; /* このコンテナが基準になります */
+    width: 100%;        /* 必要に応じてサイズ調整 */
+    left: 0%;
+  }
+
+  .my-image4 {
+    position: absolute;
+    left: 15%;    /* コンテナ内で左から10% */
+    top:-5%;     /* コンテナ内で上から10% */
+    width: 70%;   /* コンテナに合わせたサイズ調整 */
+    height: auto; /* アスペクト比を保つ */
+  }
+
+  .image-container5rd {
+    position: relative; /* このコンテナが基準になります */
+    width: 100%;        /* 必要に応じてサイズ調整 */
+    left: 0%;
+  }
+
+  .my-image5 {
+    position: absolute;
+    left: 20%;    /* コンテナ内で左から10% */
+    top:6%;     /* コンテナ内で上から10% */
+    width: 70%;   /* コンテナに合わせたサイズ調整 */
+    height: auto; /* アスペクト比を保つ */
+  }
+
+  .image-container6rd {
+    position: relative; /* このコンテナが基準になります */
+    width: 70%;        /* 必要に応じてサイズ調整 */
+    left: 0%;
+  }
+
+  .my-image6 {
+    position: absolute;
+    left: 20%;    /* コンテナ内で左から10% */
+    top:6%;     /* コンテナ内で上から10% */
+    width: 65%;   /* コンテナに合わせたサイズ調整 */
+    height: auto; /* アスペクト比を保つ */
+  }
+
+
+  .image-container7rd {
+    position: relative; /* このコンテナが基準になります */
+    width: 65%;        /* 必要に応じてサイズ調整 */
+    left: 0%;
+  }
+
+  .my-image7 {
+    position: absolute;
+    left: 20%;    /* コンテナ内で左から10% */
+    top:10%;     /* コンテナ内で上から10% */
+    width: 70%;   /* コンテナに合わせたサイズ調整 */
+    height: auto; /* アスペクト比を保つ */
+  }
+
+
+  a {
+    text-decoration: none; /* 下線を消す */
+    color: inherit;        /* 親要素の色を継承して青色にならないようにする */
+  }
+  
+  a:focus,
+  a:active {
+    outline: none;         /* クリック時のアウトラインも消す */
+  }
+
+
+
+
+
+
+
+
+
+
+
+/* ▼ 画像リスト全体を制御するクラス */
+.my-image-list {
+  /* 縦に並べる */
+  display: flex;
+  flex-direction: column;
+  /* 各画像の間隔 */
+  gap: 1rem;
+  /* 中央寄せしたい場合は以下を有効化 */
+  align-items: center;
+  /* 必要に応じて余白などを調整 */
+  margin: 1rem auto;
+  max-width: 80%;
+  border: 1px solid #ccc;
+
+
+}
+
+/* ▼ 画像自体のスタイル */
+.my-image-list img {
+  /* 親要素の幅を超えないように調整 */
+  max-width: 100%;
+  height: auto;
+  /* 枠線などを付けたい場合 */
+  border: 0px solid #ccc;
+  /* 例: 角を丸くしたい場合
+  border-radius: 4px;
+  */
+}
+
+
+
+
+
+
+
+.test1 {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 20;
+  /* 必要に応じて幅なども調整 */
+}
+
+
+.gradient-text {
+  font-size: 6rem;
+  font-weight: bold;
+  background: linear-gradient(to right, hsl(239, 100%, 74%), #f700ff); 
+  /* 以下2行がポイント：テキストにグラデーションを適用 */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* モダンブラウザ向け */
+  background-clip: text;
+  color: transparent; /* fallback */
+  margin: 0.2em 0;
+}
+
+
+
+.gradient-text3 {
+  font-size: 6rem;
+  font-weight: bold;
+  background: linear-gradient(to right, hwb(0 100% 0%), #ffffff); 
+  /* 以下2行がポイント：テキストにグラデーションを適用 */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* モダンブラウザ向け */
+  background-clip: text;
+  color: transparent; /* fallback */
+  margin: 0.2em 0;
+}
+
+/* subtext2（ここでは .gradient-text2 ） */
+.gradient-text2 {
+  position: absolute;  /* 親要素 .test1 を基準 */
+  left: -55%;          /* 横位置はお好みで調整 */
+  top: 40%;            /* 上側に持ってくるため、50% から 20% に変更 */
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #2a2a2a, hwb(0 100% 0%)); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+  transform: rotate(-90deg);
+
+}
+
+.sub-text {
+  font-size: 1.2rem;
+  /* グラデーションの設定 */
+  background: linear-gradient(to right, #9f00ff, #00e1ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* フォールバックとして透明 */
+  font-family: "Zen Kurenaido", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  margin: 0.2em 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ▼ ガラス風ボックス */
+.glass-box {
+  position: absolute;
+  /* サイズ・レイアウト */
+  width: 20vw;
+  left: 50%;
+  padding: 1rem;
+  height: 20vh;
+  top: 10%;
+
+  /* 
+    グラデーション + 半透明の色を組み合わせる
+    - 背景に「linear-gradient(… , …)」で2色のグラデーション
+    - RGBA値を使って透明度を調整
+  */
+  background: linear-gradient(
+    135deg, 
+    rgba(255, 255, 255, 0.15) 0%,  /* 角度135度の開始色 (やや濃いめ) */
+    rgba(255, 255, 255, 0.05) 100% /* 終了色 (少し薄め) */
+  );
+
+  /* ぼかし効果 */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari対策 */
+
+  /* 角丸・境界線 */
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  /* テキスト色 */
+  color: #fff;
+}
+
+
+/* ▼ ガラス風ボックス */
+.glass-box2 {
+  position: absolute;
+  /* サイズ・レイアウト */
+  width: 20vw;
+  left: 70%;
+  padding: 1rem;
+  height: 20vh;
+  top: 40%;
+
+  /* 
+    グラデーション + 半透明の色を組み合わせる
+    - 背景に「linear-gradient(… , …)」で2色のグラデーション
+    - RGBA値を使って透明度を調整
+  */
+  background: linear-gradient(
+    135deg, 
+    rgba(255, 255, 255, 0.15) 0%,  /* 角度135度の開始色 (やや濃いめ) */
+    rgba(255, 255, 255, 0.05) 100% /* 終了色 (少し薄め) */
+  );
+
+  /* ぼかし効果 */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari対策 */
+
+  /* 角丸・境界線 */
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  /* テキスト色 */
+  color: #fff;
+}
+
+
+/* ▼ ヘッダー部分 */
+.glass-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* アイコンを想定 */
+.icon {
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 3vh;
+  height: 3vh;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+/* ▼ 中央の内容 */
+.glass-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ▼ 区切り線 (縦線) */
+.glass-divider {
+  height: 2rem;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ▼ 数値・ラベル */
+.glass-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+
+
+.note {
+  position: absolute;
+  left: 52%;
+  top: 80%;
+  font-family: 'Caveat', cursive;  /* 手書き風フォント */
+  font-size: 2rem;                  /* お好みでサイズ調整 */
+  color: hsl(0, 0%, 48%);                      /* テキストカラー */
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3); /* 少し影をつけてラフに */
+  transform: rotate(26deg);         /* わずかに傾ける */
+}
+
+
+
+.writing-area {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  background: hsl(0, 0%, 100%);
+  /* 枠線の太さは自由に変更できます（例：4px） */
+  border: 1px solid transparent;
+  border-radius:0px;
+  color: #ffffff;
+  font-size: 1rem;
+
+  /* グラデーションの枠線を適用 */
+  border-image-source: linear-gradient(to right, blue, purple);
+  border-image-slice: 1; /* 必須: 画像をスライスして枠線に割り当てる */
+  border-image-repeat: stretch; /* デフォルト stretch でも可 */
+  z-index: -1;
+}
+
+.writing-area {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  background: hsl(0, 0%, 100%);
+  /* 枠線の太さは自由に変更できます（例：4px） */
+  border: 0px solid transparent;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+
+  /* グラデーションの枠線を適用 */
+  border-image-source: linear-gradient(to right, blue, purple);
+  border-image-slice: 1; /* 必須: 画像をスライスして枠線に割り当てる */
+  border-image-repeat: stretch; /* デフォルト stretch でも可 */
+  z-index: -1;
+}
+
+
+
+.circles-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  top: 110%;
+  left: 50%;
+}
+
+.circle {
+  position: absolute;
+  top: 20vh;     /* 画面の高さの20% */
+  left: 0vw;    /* 画面の幅の20% */
+  width: 8vw;
+  height: 8vw;
+  border-radius: 50%;
+}
+
+.circle-text {
+  font-size: 2.5rem;
+  /* font-weight: bold; */
+  color: hwb(0 0% 100%);
+  font-family: sans-serif;
+  z-index: 1;
+}
+
+
+/* 1つ目の円（左側） */
+.circle1 {
+  position: absolute;
+  top: -5%;  
+  left: -5%;
+  width: 50px;   /* 円のサイズ（例:100px） */
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(to top, #9F00FF, #F200FF);
+  z-index: -1;
+}
+.circle1::after {
+  content: "";
+  position: absolute;
+  top: 1px;    /* アウトラインの幅 */
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  background: white;
+  border-radius: 50%;
+}
+
+.circle2 {
+  position: absolute;
+  top: 0px;
+  left: -10%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(to top, #F200FF, #B700FF);
+  
+  /* 「AI」の文字を中央に表示 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* テキスト色を変更 */
+  color: black;
+  z-index: -1;
+}
+.circle2::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  background: white;
+  border-radius: 50%;
+  z-index: 0;  /* 背景として配置 */
+}
+/* 3つ目の円（右側） */
+.circle3 {
+  position: absolute;
+  top: 10%;
+  left: -5%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(to top, #B700FF, #7A00FF);
+  z-index: -1;
+}
+.circle3::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* 4つ目の円（右側、下段） */
+.circle4 {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(to top, hwb(292 39% 0%), #8530df);
+  z-index: -1;
+}
+.circle4::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* 5つ目の円（右側、上段） */
+.circle5 {
+  position: absolute;
+  top: -20%;
+  left: 10%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(to top, #B700FF, #7A00FF);
+  z-index: -1;
+}
+.circle5::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* 6つ目の円（右側、中央） */
+.circle6 {
+  position: absolute;
+  top: 0%;
+  left: 10%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(to top, #B700FF, #7A00FF);
+  z-index: -1;
+}
+.circle6::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  background: white;
+  border-radius: 50%;
+}
+
+
+.writing-areabox p{
+  position: absolute;
+  white-space: pre-wrap;
+
+  top: 120%;
+  left: 5%;
+  width: 50%;
+  height: 60%;
+  padding: 1rem;
+  background: hwb(0 100% 0%);
+  
+  /* 枠線を太めにして、グラデーションをより滑らかに */
+  /* border: 1px solid purple; */
+  border-radius: 8px;
+  color: hwb(0 0% 100%);
+  font-size: 1vw;
+  /* border-color: black; */
+
+  /* グラデーションボーダー */
+  /* “fill” をつけると内側の角丸もよりスムーズになります */
+  border-image-slice: 1 fill; 
+  border-image-repeat: stretch; /* round でも可 */
+  z-index: 0;
+  font-family: 'Sawarabi Mincho';
+}
+
+
+.heading2 {
+  position: absolute;
+  top: 105%;
+  left: 10%;
+  font-size: 5vw;
+  color: hsl(54, 100%, 4%);                     /* 中身 */
+  -webkit-text-stroke: 0.0001px hsl(0, 0%, 0%); 
+  z-index: 10;   /* アウトライン（単色） */
+  font-family: "Zen Kurenaido", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.heading21 {
+  position: absolute;
+  top: 105%;
+  left: 15%;
+  font-size: 5vw;
+  color: rgb(0, 0, 0);                     /* 中身 */
+  -webkit-text-stroke: 0.0001px hsl(0, 0%, 0%); 
+  z-index: 10;   /* アウトライン（単色） */
+  font-family: "Zen Kurenaido", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+
+.image-three{
+  position: absolute;
+  width: 50vw;
+  height: 10vh;
+  top: 110%;
+  left: 60vw;
+}
+
+.imagethree1{
+  position: absolute;
+  width: 50vh;
+  height: auto;
+  left: 10vw;
+  border-radius: 30%;
+  opacity: 0.4;
+  filter: grayscale(100%);
+
+}
+.imagethree2{
+  position: absolute;
+  width: 50vh;
+  height: auto;
+  left: 0vw;
+  top: 30vh;
+  border-radius: 30%;
+  opacity: 0.4;
+  filter: grayscale(100%);
+
+
+
+}
+.imagethree3{
+  position: absolute;
+  width: 50vh;
+  height: auto;
+  left: 10vw;
+  top: 60vh;
+  border-radius: 30%;
+  opacity: 0.4;
+  filter: grayscale(100%);
+
+
+
+}
+
+
+.colortree{
+  position: absolute;
+  top: 210vh;
+  left: 50%;
+}
+
+
+.imagethree4 {
+  position: absolute;
+  top: 0vh;
+  width: 100vh;
+  height: 100vh; /* 正方形にするのが望ましい */
+  left: 0vw;
+  opacity: 0.3;
+  filter: hue-rotate(-30deg) saturate(1.2);
+  
+  /* 上半分を残す半円クリップパス */
+  clip-path: ellipse(50% 50% at 50% 0%);
+}
+
+.imagethree4_2 {
+  position: absolute;
+  top: 0vh;
+  width: 100vh;
+  height: 100vh; /* 正方形にするのが望ましい */
+  left: -50vw;
+  opacity: 0.3;
+  filter: hue-rotate(-30deg) saturate(1.2);
+  
+  /* 上半分を残す半円クリップパス */
+  clip-path: ellipse(50% 50% at 50% 100%);
+}
+
+.Zenith {
+  position: absolute;
+  top: 245vh;
+  left: 100%;
+  transform: translateX(-80%);
+  font-size: 10rem;
+  width: 100vw;
+  font-family: "Sacramento", cursive;
+  font-weight: 400;
+  font-style: normal;
+  /* justify-content は flex コンテナで使用するプロパティなので、必要なら display: flex; を追加 */
+}
+
+
+
+
+
+
+
+.box {
+  position: absolute;
+  top: 215vh;
+  width: 20vw;
+  height: 20vh;
+  left: 5vw;
+  padding: 1rem;
+  margin: 1rem;
+  font-family: "Zen Kurenaido", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.box2 {
+  position: absolute;
+  top: 275vh;
+  left: 75vw;
+  width: 20vw;
+  height: 20vh;
+  padding: 1rem;
+  margin: 1rem;
+  font-family: "Zen Kurenaido", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 左上と右下の角に白いアクセントを表示 */
+.box::before,
+.box::after,
+.box2::before,
+.box2::after {
+  content: "";
+  position: absolute;
+  width: 20px;   /* アクセントのサイズ */
+  height: 20px;
+  border: 2px solid white;
+  pointer-events: none; /* クリックを妨げない */
+}
+
+.box::before,
+.box2::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.box::after,
+.box2::after {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
+}
+
+/* リンクの下線を消す（必要に応じて） */
+.box a, .box2 a {
+  position: relative;
+  z-index: 100;
+  pointer-events: auto;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ボックス内のテキストの色 */
+.box h2,
+.box p,
+.box2 h2,
+.box2 p {
+  color: hwb(0 100% 0%);
+
+}
+
+/* h2に下線を付ける */
+.box h2,
+.box2 h2 {
+  text-decoration: underline;
+}
+
+
+/* .P1 img {
+  width: 30%;
+  height: auto;
+  display: block;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  border-radius: 5%;
+} */
+
+
+
+
+
+/* main部分の高さを、残りの高さにする例 */
+main.main3 {
+  height: calc(100% - 60px - 40px);
+  /* 余白やレイアウトの都合で、overflow: hidden; を付けるかは好みで */
+  overflow: hidden;
+}
+
+
+
+/* カードコンテナ：横並びにして左右に適度な余白 */
+.card-container {
+  position: absolute;
+  top: 250vh;
+  display: flex;
+  justify-content: space-between;  /* カード同士のスペースを均等に */
+  align-items: stretch;
+  width: 100vw;
+  padding: 0 2vw;  /* 画面左右に2vwずつ余白 */
+  filter: grayscale(100%);
+
+
+}
+
+
+
+
+
+.overlay-text {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  /* テキスト色を白にする例 */
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  /* 以下は任意 */
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+}
+
+
+.grid-2x2 {
+  width: 100%;
+  height: 100%; /* 親要素(main.main3)がすでに残りの高さ */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0;
+}
+
+/* グリッド内のセル共通設定 */
+.grid-2x2 > div {
+  /* セル内の要素を中央寄せ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* デモ用の背景色や枠線（必要に応じて削除） */
+  /* border: 1px solid #ccc; */
+  /* テキストのサイズやフォント */
+  font-size: 2rem;
+  font-family: 'Mochiy Pop One', sans-serif; /* 好きなフォントに変更可 */
+}
+
+/* 左上: テキストの背景色などを設定したい場合 */
+.top-left {
+  background-color: #f0f0f0; /* 既存の背景 */
+  color: #333; /* 文字色を濃いグレーにする例 */
+}
+
+.top-right img,
+.bottom-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bottom-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scaleX(-1); /* 左右反転 */
+}
+
+/* 右下: テキスト */
+.bottom-right {
+  background-color: #f0f0f0; /* お好みで */
+  color: #333; /* 文字色を濃いグレーにする例 */
+
+}
+
+/* なんでかわからんが、width60vw (img自体が70vwだが、、、）にするとうまくいく
+Leftに動かしてもうまくいかん
+*/
+
+.image-containerS {
+  position: relative;
+  width: 60vw;
+  /* フッターの高さ分、下に余白を確保（例: 60px） */
+  padding-bottom: 20vh;
+  /* border: solid white 1px; */
+  top: 2vh;
+  left: 0vw;
+
+}
+
+.image-containerS img {
+  width: 70vw;  /* 横幅を100pxに固定 */
+  height: auto;  /* 縦横比を維持 */
+  margin:0vw;   /* 画像間に余白を設定（任意） */
+
+}
+

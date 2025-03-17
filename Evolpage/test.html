@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Google Sheets API Demo</title>
+  <!-- gapiクライアントライブラリを読み込み -->
+  <script src="https://apis.google.com/js/api.js"></script>
+</head>
+<body>
+  <!-- 取得したセルの値を表示するエリア -->
+  <div id="spreadsheet-data">Loading...</div>
+
+  <script>
+    // API 初期化関数
+    function initClient() {
+      gapi.client.init({
+        // 取得したAPIキーを入力
+        'apiKey': 'AIzaSyAf37eNWNhrU5BmP0EoE16vKDZbh3U5thw'
+      }).then(function() {
+        // シートの A1 セルを取得するリクエストを送信
+        return gapi.client.request({
+          'path': 'https://sheets.googleapis.com/v4/spreadsheets/10rox_6le9iEKViTkdBc4Km_4WwIKrKVsF8oqNvhYxjk/values/Sheet1!A1'
+        });
+      }).then(function(response) {
+        // API のレスポンスから値を抽出し、ページに表示
+        const value = response.result.values[0][0];
+        document.getElementById('spreadsheet-data').textContent = 'Cell A1: ' + value;
+        console.log("取得したセルの値:", value);
+      }, function(reason) {
+        // エラー処理
+        console.error('Error: ' + reason.result.error.message);
+        document.getElementById('spreadsheet-data').textContent = 'Error loading data';
+      });
+    }
+
+    // gapi のクライアントを読み込み、初期化関数を呼び出す
+    gapi.load('client', initClient);
+  </script>
+</body>
+</html>
